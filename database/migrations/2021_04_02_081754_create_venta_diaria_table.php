@@ -16,10 +16,9 @@ class CreateVentaDiariaTable extends Migration
         Schema::create('venta_diaria', function (Blueprint $table) {
             $table->bigIncrements('venta_id');
             $table->date('fecha');
-            $table->bigInteger('tienda_id')->unsigned()->nullable();
+            $table->integer('tienda_id')->unsigned()->nullable();
             $table->decimal('monto',$precision = 8, $scale = 2)->unsigned();
             $table->string('moneda');
-            $table->foreign('tienda_id')->references('tienda_id')->on('tienda');
 
         });
     }

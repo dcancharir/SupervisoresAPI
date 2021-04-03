@@ -14,7 +14,7 @@ class CreateTiendaTable extends Migration
     public function up()
     {
         Schema::create('tienda', function (Blueprint $table) {
-            $table->bigIncrements('tienda_id');
+            $table->increments('tienda_id');
             $table->string('cc');
             $table->string('nombre');
             $table->string('direccion');
@@ -24,8 +24,7 @@ class CreateTiendaTable extends Migration
             $table->string('correo_jop')->nullable();
             $table->string('correo_sop')->nullable();
             $table->string('ubigeo')->nullable();
-            $table->bigInteger('supervisor_id')->unsigned()->nullable();
-            $table->foreign('supervisor_id')->references('supervisor_id')->on('supervisor');
+            $table->integer('supervisor_id')->unsigned()->nullable();
         });
     }
 
