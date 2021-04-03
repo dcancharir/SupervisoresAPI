@@ -17,14 +17,14 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 Route::group(['middleware'=>['jwt.auth'],'prefix'=>'v1'],function(){
-    Route::post('/auth/refresh','AuthController@refreshToken');
-    Route::post('/auth/logout','AuthController@logout');
-    Route::post('/auth/me','AuthController@me');
-    Route::post('/tiendas/supervisor','TiendaController@obtenerTiendasSupervisor');
+    Route::post('/auth/refrescarToken','AuthController@refrescarToken');
+    Route::post('/auth/cerrarSesion','AuthController@cerrarSesion');
+    Route::post('/auth/usuarioActual','AuthController@usuarioActual');
+    Route::post('/tienda/supervisor','TiendaController@obtenerTiendasSupervisor');
 });
 Route::get('/tiendas','TiendaController@obtenerTodo');
 
 Route::group(['middleware'=>[],'prefix'=>'v1'],function(){
-    Route::post('/auth/login','AuthController@login');
+    Route::post('/auth/acceso','AuthController@acceso');
     
 });

@@ -14,7 +14,7 @@ use App\Supervisor;
 class AuthController extends Controller
 {
     //
-    public function login(Request $request){
+    public function acceso(Request $request){
         $credentials=$request->only('usuario','password');
         $validator=Validator::make($credentials,[
             'usuario'=>'required',
@@ -43,7 +43,7 @@ class AuthController extends Controller
             ],401);
         }
     }
-    public function refreshToken(){
+    public function refrescarToken(){
         $token=JWTAuth::getToken();
         try{
             $token=JWTAuth::refresh($token);
@@ -65,7 +65,7 @@ class AuthController extends Controller
             ],422);
         }
     }
-    public function logout(){
+    public function cerrarSesion(){
         try{
             JWTAuth::invalidate();
             return response()->json([
@@ -85,7 +85,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me()
+    public function usuarioActual()
     {
         return response()->json(auth()->user());
     }
