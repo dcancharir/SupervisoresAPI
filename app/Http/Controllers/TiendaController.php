@@ -20,4 +20,13 @@ class TiendaController extends Controller
         $tiendas= $supervisor->tiendas()->get();
         return $tiendas;
     }
+    public function obtenerTiendasyVentaDiaria(){
+        $fechahoy=date('Y-m-d');
+        $tiendas=Tienda::all();
+        // $tiendas=Tienda::all()->ventas()->first();
+        foreach($tiendas as $tienda){
+            $tienda->VentaDiaria=$tienda->ventas()->where('fecha',$fechahoy)->get();
+        }
+        return $tiendas;
+    }
 }

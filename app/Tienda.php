@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\VentaDiaria;
 use Illuminate\Database\Eloquent\Model;
 
 class Tienda extends Model
@@ -22,4 +23,7 @@ class Tienda extends Model
         'ubigeo',
         'supervisor_id'
     ];
+    public function ventas(){
+        return $this->hasMany(VentaDiaria::class,'tienda_id');
+    }
 }

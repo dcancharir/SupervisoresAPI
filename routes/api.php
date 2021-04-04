@@ -22,9 +22,13 @@ Route::group(['middleware'=>['jwt.auth'],'prefix'=>'v1'],function(){
     Route::post('/auth/usuarioActual','AuthController@usuarioActual');
     Route::post('/tienda/supervisor','TiendaController@obtenerTiendasSupervisor');
 });
-Route::get('/tiendas','TiendaController@obtenerTodo');
+
+
+
 
 Route::group(['middleware'=>[],'prefix'=>'v1'],function(){
     Route::post('/auth/acceso','AuthController@acceso');
-    
+    Route::get('/tiendas','TiendaController@obtenerTodo');
+    Route::get('/generarVentaDiaria','VentaDiariaController@generarVentaDiaria');
+    Route::get('/tiendas/ventaHoy','TiendaController@obtenerTiendasyVentaDiaria');
 });

@@ -15,4 +15,5 @@ class VentaDiaria extends Model
         'monto',
         'moneda',
     ];
+    public $timestamps = false;
 }
