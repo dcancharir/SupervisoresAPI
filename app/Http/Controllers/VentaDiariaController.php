@@ -14,8 +14,8 @@ class VentaDiariaController extends Controller
         $fechaHoy=date('Y-m-d');
         $moneda='PEN';
         try{
-            $ventas=VentaDiaria::where('fecha','2021-04-03')->get();
-            if($ventas->count()>0){
+            $ventas=VentaDiaria::where('fecha',$fechaHoy)->get();
+            if($ventas->count()==0){
                 $tiendas=Tienda::all();
                 foreach($tiendas as $tienda){
                     $ventaDiara=new VentaDiaria();
@@ -32,7 +32,7 @@ class VentaDiariaController extends Controller
             }
             else{
                 return response()->json([
-                    'success'=>true,
+                    'false'=>true,
                     'message'=>'ya se hay ventas registradas este dia',
                 ],200);
             }
@@ -43,6 +43,6 @@ class VentaDiariaController extends Controller
                 'message'=> $ex->getMessage(),
             ],401);
         }
- 
+
     }
 }
