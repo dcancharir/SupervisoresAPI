@@ -31,4 +31,5 @@ Route::group(['middleware'=>[],'prefix'=>'v1'],function(){
     Route::get('/tiendas','TiendaController@obtenerTodo');
     Route::get('/generarVentaDiaria','VentaDiariaController@generarVentaDiaria');
     Route::get('/tiendas/ventaHoy','TiendaController@obtenerTiendasyVentaDiaria');
+    Route::get('/dataHojaRuta','SupervisorController@listarDataHojaRuta');
 });

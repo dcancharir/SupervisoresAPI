@@ -68,6 +68,7 @@ class Supervisor extends Authenticatable implements JWTSubject
     }
     //relationship methods
     public function tiendas(){
+        // return $this->hasmany('App\Tienda','supervisor_id');
         return $this->hasMany(Tienda::class,'supervisor_id');
     }
 }

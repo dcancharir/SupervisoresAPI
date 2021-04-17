@@ -29,4 +29,7 @@ class TiendaController extends Controller
         }
         return $tiendas;
     }
+    public function supervisor(){
+        return $this->belongsTo('App\Supervisor','supervisor_id');
+    }
 }

@@ -1,0 +1,9 @@
+factory('App\Supervisor',19)->create();
+//crear un usuario extra por web, para probar
+INSERT INTO bd_supervisores_api.tienda
+(cc, nombre, direccion, razon_social_id, latitud,
+longitud,correo_jop, correo_sop, ubigeo,supervisor_id)
+SELECT
+	cc_id, nombre, direccion, razon_social_id, latitud,
+longitud,correo_jop, correo_sop, ubigeo,(SELECT (FLOOR(RAND() * (20 - 1 + 1)) + 1)) //nro de usuarios creados
+ FROM bd_hoja_ruta.tienda_prueba
